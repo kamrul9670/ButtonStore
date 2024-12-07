@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 
 app.use('/api/auth', AuthRouter);
 
-// Vercel serverless function
+// Export the app as a serverless function
 module.exports = (req, res) => {
-  app(req, res);
+  app(req, res);  // Pass the req and res objects to express app
 };
