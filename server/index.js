@@ -1,29 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const AuthRouter = require('../Routes/AuthRouter');
+const AuthRouter = require('./Routes/AuthRouter');
 require('dotenv').config();
-require('../Models/db');
+require('./Models/db');
 
 const app = express();
+const PORT = process.env.PORT || 8080;
 
-// Middleware
 app.use(bodyParser.json());
-app.use(cors({
+ app.use(cors({
   origin: ['https://button-store-verg.vercel.app/'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add other methods as needed
   credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization'], // Add other headers if needed
 }));
 
-// Routes
-app.get("/", (req, res) => {
-  res.json("Successfully deployed Server");
-});
-
+      app.get("/" , (req , res) =>  {
+        res.json("Sucessfully deploy Server");
+      })
 app.use('/api/auth', AuthRouter);
 
-// Export the serverless function
-module.exports = (req, res) => {
-  app.handle(req, res); // Use express's handle method instead of invoking app(req, res)
-};
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
