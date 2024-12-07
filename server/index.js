@@ -9,8 +9,16 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
-app.use(cors());
+ app.use(cors({
+  origin: ['https://button-store-verg.vercel.app/'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add other methods as needed
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'], // Add other headers if needed
+}));
 
+      app.get("/" , (req , res) =>  {
+        res.json("Sucessfully deploy Server");
+      })
 app.use('/api/auth', AuthRouter);
 
 app.listen(PORT, () => {
