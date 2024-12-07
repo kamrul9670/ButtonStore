@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 
 app.use('/api/auth', AuthRouter);
 
-// Export the app as a serverless function
+// Export the serverless function
 module.exports = (req, res) => {
-  app(req, res);  // Pass the req and res objects to express app
+  app.handle(req, res); // Use express's handle method instead of invoking app(req, res)
 };
