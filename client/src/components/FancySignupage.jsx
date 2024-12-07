@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import { Typography, TextField, Button, Container, Paper } from "@mui/material";
-import { signupUser } from "../services/authService";  // Import the service to handle API calls
-import { useNavigate } from "react-router-dom";  // Import the useNavigate hook
+import { signupUser } from "../services/authService"; 
 
-const FancySignupPage = () => {
+const FancySignupPage = ({ setCurrentPage }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-
-       // Initialize the navigate function
-  const navigate = useNavigate();      // working....
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,14 +19,14 @@ const FancySignupPage = () => {
       const response = await signupUser({ name, email, password });
       alert(response.message || "Signup successful!");
 
-        navigate("/fancyLoginpage")     // ispar work baccha hai
-
-
-
+      // Clear form fields
       setName("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
+
+      // Redirect to login page
+      setCurrentPage("login");
     } catch (error) {
       alert(error.message || "Signup failed. Please try again.");
     }

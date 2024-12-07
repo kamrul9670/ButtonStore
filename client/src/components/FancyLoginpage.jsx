@@ -1,13 +1,41 @@
-import React, { useState } from "react";
-import {  Typography, TextField, Button, Container, Paper } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Typography, TextField, Button, Container, Paper } from "@mui/material";
+import { loginUser } from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
-const FancyLoginPage = () => {
+const FancyLoginPage = ({ setIsLoggedIn, setUserName, setCurrentPage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const authToken = localStorage.getItem("authToken");
+    if (authToken) {
+      console.log("Token found, redirecting to home...");
+      navigate("/"); // Redirect if already logged in
+    }
+  }, [navigate]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Logged in with", email, password);
+    try {
+      const response = await loginUser({ email, password });
+      console.log("Login successful:", response);
+
+      // Save JWT to localStorage
+      localStorage.setItem("authToken", response.jwtToken);
+      localStorage.setItem("userName", response.name);
+
+      // Notify the user and update state
+      alert(`Welcome, ${response.name}`);
+      setIsLoggedIn(true);
+      setUserName(response.name);
+
+      // Update current page to home
+      setCurrentPage("home");
+    } catch (error) {
+      alert(error.message || "Login failed");
+    }
   };
 
   return (
@@ -38,20 +66,15 @@ const FancyLoginPage = () => {
           />
           <TextField
             label="Password"
-            variant="outlined"
             type="password"
+            variant="outlined"
             fullWidth
-            sx={{ marginBottom: 2 }}
+            sx={{ marginBottom: 3 }}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            sx={{ width: "100%", padding: "10px" }}
-          >
+          <Button type="submit" variant="contained" fullWidth>
             Login
           </Button>
         </form>

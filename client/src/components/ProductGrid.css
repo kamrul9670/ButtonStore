@@ -1,0 +1,43 @@
+
+.main-body {
+
+    background-color: rgb(226, 226, 140);
+}
+
+button.btncat {
+    background-color: rgb(211, 231, 239);
+    border: 1px solid green;
+    margin-left: 15%;
+    font-size: 20px;
+}
+
+
+  .btncat:hover {
+    background-color: rgb(58, 8, 115);
+    
+  }
+
+
+  /* ProductGrid.css */
+
+.product-grid-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}

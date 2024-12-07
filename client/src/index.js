@@ -1,19 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import 'react-toastify/ReactToastify.css';
+// src/index.js
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom"; // Import BrowserRouter
+import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+ReactDOM.render(
+  <BrowserRouter>
+    <App /> {/* Wrap App inside BrowserRouter */}
+  </BrowserRouter>,
+  document.getElementById("root")
 );
-
-
-reportWebVitals();
