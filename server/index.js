@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
   res.json("Successfully deployed server");
 });
 
-app.use('/api/auth', AuthRouter);
+app.use('/auth', AuthRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
