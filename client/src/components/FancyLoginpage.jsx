@@ -18,7 +18,9 @@ const FancyLoginPage = ({ setIsLoggedIn, setUserName, setCurrentPage }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
+    try {   
+
+      
       const response = await loginUser({ email, password });
       console.log("Login successful:", response);
 
