@@ -10,7 +10,7 @@
 
  useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 50000, // Increase timeout
+  serverSelectionTimeoutMS: 50000
              
        })
        .then(() => {
