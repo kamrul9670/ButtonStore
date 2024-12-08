@@ -12,7 +12,7 @@
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 50000, // Increase timeout
              
-       });
+       })
        .then(() => {
 
         console.log(" Database connect suceesfully ... ")
