@@ -20,15 +20,6 @@ const FancyLoginPage = ({ setIsLoggedIn, setUserName, setCurrentPage }) => {
     e.preventDefault();
     try {   
 
-     const response = await axios.post(
-        'https://button-store-lzy3.vercel.app/auth/login', // Replace with your backend URL
-        { username, password },
-        {
-          withCredentials: true, // Ensures cookies/sessions are sent
-        }
-      );
-
-
       
       const response = await loginUser({ email, password });
       console.log("Login successful:", response);
