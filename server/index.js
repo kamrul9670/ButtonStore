@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
  app.use(cors({
-  origin: ['https://button-store-verg.vercel.app/'],
+  origin: ['https://button-store-verg.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add other methods as needed
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'], // Add other headers if needed
