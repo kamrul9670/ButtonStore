@@ -35,7 +35,12 @@ const FancyLoginPage = ({ setIsLoggedIn, setUserName, setCurrentPage }) => {
 
       // Update current page to home
       setCurrentPage("home");
-    } catch (error) {
+    } catch (error) {  
+      
+      if(password.length < 4 )
+       {
+        error.message = "Password must be contain 4 character" ;
+       } 
       alert(error.message || "Login failed");
     }
   };
@@ -63,7 +68,7 @@ const FancyLoginPage = ({ setIsLoggedIn, setUserName, setCurrentPage }) => {
             fullWidth
             sx={{ marginBottom: 2 }}
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.toLowerCase())}
             required
           />
           <TextField
