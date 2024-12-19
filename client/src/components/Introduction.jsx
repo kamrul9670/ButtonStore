@@ -9,17 +9,17 @@ const Introduction = () => {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.heading}>Welcome to Our Shop</h1>
+      <h1 style={styles.heading}>Welcome to Our Shop
+
+
+     
+
+      </h1>
       <p style={styles.paragraph}>
         Established in 2023 by <strong>Sadruddin</strong>, son of Habibur Rahman, this shop aims to provide products at wholesale 
         rates in our area. 
       </p>
-      <p style={styles.paragraph}>
-        A sewing machine is a device that uses thread to join pieces of fabric together. Invented during the Industrial Revolution 
-        to reduce manual labor in clothing manufacturing, the first sewing machine was designed by <strong>Thomas Saint</strong> 
-        in 1790. Later, in 1874, <strong>William Newton Wilson</strong> built the first hand-crank sewing machine using Saint's 
-        patent drawings.
-      </p>
+     
       <h2 style={styles.subheading}>
         Key Features of Sewing Machines
         <button 
@@ -30,13 +30,22 @@ const Introduction = () => {
         </button>
       </h2>
       {showDetails && (
-        <ul style={styles.list}>
-          <li><strong>Operation:</strong> A needle inserts into the fabric and rotates a hook, creating a stitch.</li>
-          <li><strong>Early Use:</strong> Initially sold to clothing manufacturers, sewing machines gained popularity with the middle class in the 1860s.</li>
-          <li><strong>Electric Machines:</strong> Electric sewing machines were introduced in the 1880s with motors later integrated into their casings.</li>
-          <li><strong>Modern Features:</strong> Today, sewing machines offer various stitching patterns and advanced functionality.</li>
-        </ul>
-      )}
+  <div style={styles.container}>
+    <p style={styles.paragraph}>
+      A sewing machine is a device that uses thread to join pieces of fabric together. Invented during the Industrial Revolution 
+      to reduce manual labor in clothing manufacturing, the first sewing machine was designed by <strong>Thomas Saint</strong> 
+      in 1790. Later, in 1874, <strong>William Newton Wilson</strong> built the first hand-crank sewing machine using Saint's 
+      patent drawings.
+    </p>
+    <ul style={styles.list}>
+      <li><strong>Operation:</strong> A needle inserts into the fabric and rotates a hook, creating a stitch.</li>
+      <li><strong>Early Use:</strong> Initially sold to clothing manufacturers, sewing machines gained popularity with the middle class in the 1860s.</li>
+      <li><strong>Electric Machines:</strong> Electric sewing machines were introduced in the 1880s with motors later integrated into their casings.</li>
+      <li><strong>Modern Features:</strong> Today, sewing machines offer various stitching patterns and advanced functionality.</li>
+    </ul>
+  </div>
+)}
+
       <p style={styles.paragraph}>
         Our shop is committed to bringing high-quality sewing machines and accessories to our customers at affordable prices.
       </p>
@@ -82,8 +91,8 @@ const styles = {
   iconButton: {
     backgroundColor: 'transparent',
     border: 'none',
-    fontSize: '1.5rem',
-    color: '#2980b9',
+    fontSize: '3.5rem',
+    color: 'red',
     cursor: 'pointer',
   },
 };
