@@ -64,7 +64,7 @@ const FancySignupPage = ({ setCurrentPage }) => {
             fullWidth
             sx={{ marginBottom: 2 }}
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.toLowerCase())}
             required
           />
           <TextField
